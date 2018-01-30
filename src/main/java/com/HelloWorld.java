@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jdk.nashorn.internal.runtime.Context;
+
 /**
  * 
  * @author vivekrjt
@@ -22,9 +24,12 @@ public class HelloWorld extends HttpServlet {
 		//response.getWriter().write("Helllo Vivek");
 		ServletContext application = getServletContext();
 		application.setAttribute("name", "Vivek Sinha");
-		RequestDispatcher rd =request.getRequestDispatcher("home.jsp");
 		
-		rd.forward(request, response);
+		response.setContentType("application/json");
+		response.getWriter().write("{\"x\":\"y\"}");
+//		RequestDispatcher rd =request.getRequestDispatcher("home.jsp");
+//		
+//		rd.forward(request, response);
 	}
 
 	
